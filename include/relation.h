@@ -7,7 +7,7 @@
 #define RADIX_SORT_THRESHOLD 0
 #endif
 #ifndef FULL_BUFFER_VEC_MULTIPLIER
-#define FULL_BUFFER_VEC_MULTIPLIER 5
+#define FULL_BUFFER_VEC_MULTIPLIER 3
 #endif
 
 enum RelationVersion { DELTA, FULL, NEWT };
@@ -280,7 +280,7 @@ struct Relation {
     tuple_type *tuple_merge_buffer;
     tuple_size_t tuple_merge_buffer_size = 0;
     bool pre_allocated_merge_buffer_flag = true;
-    bool fully_disable_merge_buffer_flag = true;
+    bool fully_disable_merge_buffer_flag = false;
     //
 
     // delta relation generate in each iteration, all index stripped
